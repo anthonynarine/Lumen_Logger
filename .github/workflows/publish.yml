@@ -3,7 +3,7 @@ name: 📦 Build & Publish Lumen Logger
 on:
   push:
     tags:
-      - 'v*'  # triggers only when you push tags like v0.3.0
+      - 'v*'  # triggers only when you push tags like v0.3.4
 
 permissions:
   contents: write
@@ -25,18 +25,27 @@ jobs:
       - name: 📦 Install build tools
         run: |
           python -m pip install --upgrade pip
-          pip install build
+          pip install build wheel twine
 
       - name: 🏗️ Build wheel and sdist
-        run: python -m build
+        working-directory: ./  # ensures we’re in repo root
+        run: |
+          echo "📦 Building Lumen Logger package..."
+          python -m build
+
+      - name: 🧾 List built artifacts
+        run: |
+          echo "✅ Build completed. Contents of dist/:"
+          ls -la dist/
 
       - name: 💾 Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: lumen-logger-dist
           path: dist/
+          if-no-files-found: error
 
-  # Optional: Publish to PyPI (if you decide later)
+  # Optional: Publish to PyPI (manual enable later)
   publish-pypi:
     name: 🚀 Publish to PyPI
     runs-on: ubuntu-latest

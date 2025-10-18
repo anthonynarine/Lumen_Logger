@@ -14,7 +14,7 @@ This guide explains how to:
 
 ---
 
-## 🧩 1️⃣ Folder Structure
+## 🧩 Folder Structure
 
 Lumen_Logger/
 ├── lumen_logger/
@@ -35,9 +35,7 @@ Lumen_Logger/
 
 ---
 
-## 🧱 2️⃣ Installation (Public GitHub)
-You can now install it **directly from the public repo**:
-
+## 🧱 Installation (Public GitHub)
 ```bash
 pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
 ```
@@ -46,14 +44,13 @@ pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
 
 ---
 
-## 🧪 3️⃣ Running Tests
-Ensure `pytest` and `python-dotenv` are installed:
+## 🧪 Running Tests
 ```bash
 pip install -r requirements.txt
 pytest -v
 ```
 
-All tests should pass:
+Expected output:
 ```
 tests/test_configure_logging.py::test_configure_logging_creates_log_file PASSED
 tests/test_middleware.py::test_correlation_middleware_adds_header PASSED
@@ -61,8 +58,7 @@ tests/test_middleware.py::test_correlation_middleware_adds_header PASSED
 
 ---
 
-## ⚙️ 4️⃣ Configure .env for Local Development
-Create a `.env` file in your project root:
+## ⚙️ Configure .env for Local Development
 ```bash
 LOG_LEVEL=INFO
 LOG_TO_FILE=true
@@ -72,9 +68,8 @@ LOG_SERVICE_NAME=test_logger_service
 
 ---
 
-## 🧾 5️⃣ Using It in a Service
+## 🧾 Using It in a Service
 Example (FastAPI):
-
 ```python
 from lumen_logger import configure_logging, CorrelationIdMiddleware
 from fastapi import FastAPI
@@ -86,13 +81,9 @@ app.add_middleware(CorrelationIdMiddleware)
 
 ---
 
-## 🧱 6️⃣ Automated Builds (CI/CD)
-Two workflows now handle automation:
-
-| File | Purpose |
-|------|----------|
-| `.github/workflows/publish.yml` | Builds and uploads artifacts on version tag |
-| `.github/workflows/release.yml` | Creates GitHub Release with `.whl` and `.tar.gz` |
+## 🧱 Automated Builds (CI/CD)
+- `publish.yml`: Builds and uploads artifacts on version tag  
+- `release.yml`: Creates GitHub Release with `.whl` and `.tar.gz`  
 
 Tag and push:
 ```bash
@@ -101,16 +92,6 @@ git push origin v0.3.4
 ```
 
 GitHub Actions will automatically build and publish the release.
-
----
-
-## 🧠 Summary
-| Task | Command |
-|------|----------|
-| Build package | `python -m build` |
-| Run tests | `pytest -v` |
-| Install | `pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4` |
-| Tag new version | `git tag v0.3.4 && git push origin v0.3.4` |
 
 ---
 
