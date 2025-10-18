@@ -1,0 +1,27 @@
+# ==========================================================
+# 🧰 Lumen Logger Packaging Manifest
+# ==========================================================
+# Prevent Python build tools from accidentally bundling
+# local development files or virtual environments into the .whl
+# ==========================================================
+
+# ---- Exclude virtual environments ----
+exclude lumen_logger_venv/**
+prune lumen_logger_venv
+
+# ---- Exclude caches and temporary files ----
+exclude __pycache__/**
+prune __pycache__
+exclude *.py[cod]
+exclude *.log
+
+# ---- Exclude build directories ----
+exclude build/**
+exclude dist/**
+exclude *.egg-info/**
+
+# ---- Exclude IDE and system files ----
+exclude .vscode/**
+exclude .idea/**
+exclude .DS_Store
+exclude Thumbs.db

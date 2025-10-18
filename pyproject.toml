@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lumen-logger"
+version = "0.2.0"
+description = "Enterprise-grade distributed logging system with correlation IDs for Lumen microservices."
+readme = "README.md"
+authors = [{ name = "Anthony Narine", email = "anthony@lumen.ai" }]
+license = { text = "Proprietary" }
+requires-python = ">=3.10"
+dependencies = ["colorlog>=6.7"]
+
+[tool.setuptools.packages.find]
+include = ["lumen_logger*"]
+
+[project.urls]
+Homepage = "https://github.com/anthonynarine/Lumen"

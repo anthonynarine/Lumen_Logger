@@ -1,0 +1,53 @@
+# ==========================================================
+# 🧠 Lumen Logger Git Ignore
+# ==========================================================
+# Prevent committing build outputs, virtualenvs, and editor files
+# Keeps your GitHub repo clean and lightweight.
+# ==========================================================
+
+# ---- Python build artifacts ----
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+build/
+dist/
+*.log
+
+# ---- Virtual environments ----
+lumen_logger_venv/
+.env/
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ---- IDE / Editor files ----
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ---- OS-specific clutter ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Unit test / coverage ----
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
+.cache/
+
+# ---- Misc ----
+*.bak
+*.tmp
+*.orig
