@@ -1,21 +1,22 @@
 # 🩸 Lumen Logger (`lumen-logger`)
-**Version:** 0.3.1  
+**Version:** 0.3.3  
 **Author:** Anthony Narine  
 
 ---
 
 ## 🧭 Overview  
 
-`lumen-logger` is a **distributed logging system** built to unify observability and structured logging across Python-based microservices.
+`lumen-logger` is a **distributed, enterprise-grade logging system** designed to unify observability and structured logging across Python-based microservices.
 
-Originally developed for the **Lumen Healthcare Platform**, it now serves as a reusable, standalone package for **FastAPI**, **Django**, or **async Python** applications.
+Originally built for the **Lumen Healthcare Platform**, it now serves as a reusable, standalone package for **FastAPI**, **Django**, and **async Python** applications.
 
 Features include:
-- Environment-driven configuration  
-- JSON + colorized console output  
-- Automatic correlation ID propagation  
-- Async + thread-safe handling  
-- Optional log collector integration  
+- Dynamic `.env`-driven configuration  
+- Colorized + structured JSON output  
+- Automatic correlation ID injection  
+- Thread- and async-safe initialization  
+- Zero-touch setup (`configure_logging()` just works)  
+- Collector-ready for centralized log aggregation  
 
 ---
 
@@ -23,12 +24,12 @@ Features include:
 
 | Feature | Description |
 |----------|--------------|
-| **Dynamic Config** | Configure entirely via environment variables |
-| **Dual Output System** | Color console for dev + rotating file/JSON for production |
-| **Correlation IDs** | Trace requests across distributed services |
-| **Structured JSON Logs** | Ready for ELK, Grafana Loki, or CloudWatch |
-| **Async Collector Support** | Non-blocking HTTP log shipping |
-| **Zero-Touch Setup** | Just `configure_logging()` — works everywhere |
+| **Dynamic Config** | Reads settings from `.env` and environment vars at runtime |
+| **Dual Output System** | Color console (dev) + rotating file logs (prod) |
+| **Correlation IDs** | Distributed tracing for microservice observability |
+| **Structured JSON Logs** | ELK / Grafana Loki compatible |
+| **Async Collector Ready** | Non-blocking HTTP log shipping (future-ready) |
+| **Zero-Touch Setup** | Works in FastAPI or Django without custom config |
 
 ---
 
@@ -36,23 +37,15 @@ Features include:
 
 ### 🪄 From GitHub (Public Repo)
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@main
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.3
 ```
 
-### 🧩 From Tagged Release
-```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.1
-```
+✅ No tokens required — this is a public, CI-built package.
 
 ### 🧱 From Local Build
 After running `python -m build`:
 ```bash
-pip install dist/lumen_logger-0.3.1-py3-none-any.whl
-```
-
-✅ Verify:
-```bash
-python -c "from lumen_logger import configure_logging; print('✅ Lumen Logger imported successfully')"
+pip install dist/lumen_logger-0.3.3-py3-none-any.whl
 ```
 
 ---
@@ -64,7 +57,7 @@ python -c "from lumen_logger import configure_logging; print('✅ Lumen Logger i
 from fastapi import FastAPI
 from lumen_logger import configure_logging, CorrelationIdMiddleware
 
-configure_logging(service_name="lumen_media")
+configure_logging()
 
 app = FastAPI()
 app.add_middleware(CorrelationIdMiddleware)
@@ -78,7 +71,7 @@ async def health():
 ```python
 # settings.py
 from lumen_logger import configure_logging
-configure_logging(service_name="lumen_reports")
+configure_logging()
 
 MIDDLEWARE = [
     'lumen_logger.middleware.DjangoCorrelationMiddleware',
@@ -95,68 +88,93 @@ MIDDLEWARE = [
 | `LOG_LEVEL` | `INFO` | Log verbosity level |
 | `LOG_FORMAT` | `text` | Output type (`text` or `json`) |
 | `LOG_TO_FILE` | `true` | Enables rotating file logs |
-| `LOG_FILE_PATH` | `./logs` | Directory for file logs |
-| `LOG_MAX_SIZE_MB` | `10` | Max log file size before rotation |
+| `LOG_FILE_PATH` | `./logs` | Directory for log files |
+| `LOG_MAX_SIZE_MB` | `10` | Max file size before rotation |
 | `LOG_BACKUP_COUNT` | `5` | Number of rotated logs to keep |
-| `LOG_SERVICE_NAME` | `default_service` | Used as log prefix |
+| `LOG_SERVICE_NAME` | `lumen_service` | Service identifier |
 | `LOG_COLLECTOR_URL` | *None* | Optional async collector endpoint |
-| `LOG_ENABLE_CORRELATION` | `true` | Adds correlation IDs automatically |
+| `LOG_ENABLE_CORRELATION` | `true` | Enables correlation ID tracing |
+
+### Example `.env`
+```bash
+LOG_LEVEL=INFO
+LOG_TO_FILE=true
+LOG_FILE_PATH=./logs
+LOG_SERVICE_NAME=lumen_media
+```
 
 ---
 
-## 🧠 Integration Targets  
+## 🧪 Testing
 
-| Framework | Use Case |
-|------------|-----------|
-| **FastAPI** | API & microservice logs with correlation IDs |
-| **Django** | App-wide logs, request tracing |
-| **LangChain / AI Agents** | Logging token usage & chains |
-| **Healthcare Systems** | HIPAA-safe observability and audit trails |
-| **Financial Backends** | JSON logs for compliance pipelines |
+Lumen Logger includes a full test suite.
+
+Run locally:
+```bash
+pip install -r requirements.txt
+pytest -v
+```
+
+Expected output:
+```
+tests/test_configure_logging.py::test_configure_logging_creates_log_file PASSED
+tests/test_middleware.py::test_correlation_middleware_adds_header PASSED
+```
 
 ---
 
 ## 🔁 CI/CD & Releases  
 
-`lumen-logger` automatically builds and publishes new releases via **GitHub Actions** whenever a tag is pushed.
+`lumen-logger` builds and publishes new releases automatically via **GitHub Actions** when a tag is pushed:
 
 ```bash
-git tag v0.3.1
-git push origin v0.3.1
+git tag v0.3.3
+git push origin v0.3.3
 ```
 
-✅ This triggers:
+✅ Actions perform:
 - Package build  
 - Artifact upload  
-- Automatic GitHub Release creation with `.whl` + `.tar.gz`
+- GitHub Release creation with `.whl` and `.tar.gz`
+
+---
+
+## 📘 Documentation  
+
+Full documentation is available in `/docs`:
+
+- [`Lumen_Logging_Architecture.md`](docs/Lumen_Logging_Architecture.md)
+- [`Lumen_Logger_Package_Guide_v2.md`](docs/Lumen_Logger_Package_Guide_v2.md)
 
 ---
 
 ## 🧩 Reuse Across Projects  
 
-`lumen-logger` was engineered as a **universal, enterprise-grade logger**.  
-You can integrate it with:
-- Lumen Healthcare microservices  
-- AI agents like Dubin (LangChain)  
-- Future APIs like StockMind or Auth API  
-- Any project requiring reliable, structured logging  
+`lumen-logger` powers the following Lumen microservices:
+- **Lumen Media API**
+- **Lumen Reports API**
+- **Dubin (RAG Agent)**
+- **HL7 Gateway**
+- **Billing API**
+- and any future FastAPI or Django projects
 
 ---
 
 ## 🔒 License  
 
-**MIT License** (Open-Source Release)  
+**MIT License**  
 © 2025 Anthony Narine  
 
-This public version of `lumen-logger` may be reused in open-source or commercial projects, provided attribution remains.
+This public package may be used in open-source or commercial applications with attribution.
 
 ---
 
 ## 💡 Author  
 
 **Anthony Narine**  
-Designing modular, reusable, AI-integrated backend systems for healthcare and enterprise applications.
+Founder & Lead Engineer — Lumen Project  
+Designing modular, reusable, AI-integrated backend systems for healthcare and enterprise observability.
 
 ---
 
-⭐ **If you like this project**, consider starring the repo to support future releases.
+⭐ **Star the repo** if you find it useful — every star supports the Lumen open-source ecosystem.
