@@ -144,7 +144,7 @@ git push origin v0.3.4
 Full documentation is available in `/docs`:
 
 - [`Lumen_Logging_Architecture.md`](docs/Lumen_Logging_Architecture.md)
-- [`Lumen_Logger_Package_Guide_v2.md`](docs/Lumen_Logger_Package_Guide_v2.md)
+- [`Lumen_Logger_Package_Guide_v2.md`](docs/Lumen_Logger_Package_Guide.md)
 
 ---
 
