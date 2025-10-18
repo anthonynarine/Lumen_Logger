@@ -155,7 +155,6 @@ This public version of `lumen-logger` may be reused in open-source or commercial
 ## 💡 Author  
 
 **Anthony Narine**  
-Founder & Lead Engineer — *Lumen Healthcare Platform*  
 Designing modular, reusable, AI-integrated backend systems for healthcare and enterprise applications.
 
 ---
