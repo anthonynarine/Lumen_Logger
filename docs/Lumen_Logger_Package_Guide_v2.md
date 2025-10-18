@@ -1,4 +1,4 @@
-# ⚙️ Lumen Logger — Public Package Build & Installation Guide (v0.3.3)
+# ⚙️ Lumen Logger — Public Package Build & Installation Guide (v0.3.4)
 
 ## 🧠 Overview
 
@@ -39,7 +39,7 @@ Lumen_Logger/
 You can now install it **directly from the public repo**:
 
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.3
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
 ```
 
 ✅ No tokens or private access required.
@@ -96,8 +96,8 @@ Two workflows now handle automation:
 
 Tag and push:
 ```bash
-git tag v0.3.3
-git push origin v0.3.3
+git tag v0.3.4
+git push origin v0.3.4
 ```
 
 GitHub Actions will automatically build and publish the release.
@@ -109,8 +109,8 @@ GitHub Actions will automatically build and publish the release.
 |------|----------|
 | Build package | `python -m build` |
 | Run tests | `pytest -v` |
-| Install | `pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.3` |
-| Tag new version | `git tag v0.3.3 && git push origin v0.3.3` |
+| Install | `pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4` |
+| Tag new version | `git tag v0.3.4 && git push origin v0.3.4` |
 
 ---
 

@@ -10,7 +10,7 @@ to provide distributed request tracing across FastAPI and Django services.
 ### 🚀 Package Source
 Lumen Logger is now distributed as a standalone public package:
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.3
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
 ```
 
 ---
@@ -62,7 +62,7 @@ If unavailable, all logs gracefully fall back to file and console output.
 - ✅ Verified via `pytest` suite:
   - Log file creation and rotation.
   - Correlation ID propagation via FastAPI middleware.
-- 🧪 100% green across all test cases (v0.3.3).
+- 🧪 100% green across all test cases (v0.3.4).
 
 ---
 
@@ -72,5 +72,5 @@ If unavailable, all logs gracefully fall back to file and console output.
 
 ## 🧠 Author
 Anthony Narine  
-Founder & Lead Engineer — Lumen Project  
-Version 0.3.3 — Dynamic, reload-safe, test-verified logging system.
+Engineer — Lumen Project  
+Version 0.3.4 — Dynamic, reload-safe, test-verified logging system.
