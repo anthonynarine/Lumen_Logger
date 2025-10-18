@@ -172,7 +172,7 @@ This public package may be used in open-source or commercial applications with a
 ## 💡 Author  
 
 **Anthony Narine**  
-Founder & Lead Engineer — Lumen Project  
+Engineer — Lumen Project  
 Designing modular, reusable, AI-integrated backend systems for healthcare and enterprise observability.
 
 ---
