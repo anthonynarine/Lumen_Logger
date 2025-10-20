@@ -113,6 +113,8 @@ Run locally:
 ```bash
 pip install -r requirements.txt
 pytest -v
+pytest -v --cov=lumen_logger --cov-report=term-missing
+
 ```
 
 Expected output:
