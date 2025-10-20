@@ -1,5 +1,5 @@
 # 🧩 Lumen Logger — System Architecture Diagram
-**Version:** 0.3.4 — Dynamic Configuration + CI Workflow Update
+**Version:** 0.3.6 — Dynamic Configuration + CI Workflow Update
 
 ## 🌍 Overview
 
@@ -9,7 +9,7 @@ to provide distributed request tracing across FastAPI and Django services.
 
 ### 🚀 Package Source
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.6
 ```
 
 ---
@@ -36,7 +36,7 @@ and contextual metadata like `service_name`, `hostname`, and timestamps.
 ---
 
 ## ✅ Verified Reliability
-- Verified via `pytest` (v0.3.4)
+- Verified via `pytest` (v0.3.6)
 - CI/CD pipeline tested for build and release artifacts
 - Works across FastAPI and Django microservices
 

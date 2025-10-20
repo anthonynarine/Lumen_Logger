@@ -1,4 +1,4 @@
-# ⚙️ Lumen Logger — Public Package Build & Installation Guide (v0.3.4)
+# ⚙️ Lumen Logger — Public Package Build & Installation Guide (v0.3.6)
 
 ## 🧠 Overview
 
@@ -37,7 +37,7 @@ Lumen_Logger/
 
 ## 🧱 Installation (Public GitHub)
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.5
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.6
 ```
 
 ✅ No tokens or private access required.
@@ -87,8 +87,8 @@ app.add_middleware(CorrelationIdMiddleware)
 
 Tag and push:
 ```bash
-git tag v0.3.5
-git push origin v0.3.5
+git tag v0.3.6
+git push origin v0.3.6
 ```
 
 GitHub Actions will automatically build and publish the release.

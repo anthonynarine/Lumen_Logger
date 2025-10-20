@@ -1,5 +1,5 @@
 # 🩸 Lumen Logger (`lumen-logger`)
-**Version:** 0.3.5  
+**Version:** 0.3.6  
 **Author:** Anthony Narine  
 
 ---
@@ -37,7 +37,7 @@ Features include:
 
 ### 🪄 From GitHub (Public Repo)
 ```bash
-pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
+pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.6
 ```
 
 ✅ No tokens required — this is a public, CI-built package.
@@ -45,7 +45,7 @@ pip install git+https://github.com/anthonynarine/Lumen_Logger.git@v0.3.4
 ### 🧱 From Local Build
 After running `python -m build`:
 ```bash
-pip install dist/lumen_logger-0.3.4-py3-none-any.whl
+pip install dist/lumen_logger-0.3.6-py3-none-any.whl
 ```
 
 ---
@@ -130,8 +130,8 @@ tests/test_middleware.py::test_correlation_middleware_adds_header PASSED
 `lumen-logger` builds and publishes new releases automatically via **GitHub Actions** when a tag is pushed:
 
 ```bash
-git tag v0.3.5
-git push origin v0.3.5
+git tag v0.3.6
+git push origin v0.3.6
 ```
 
 ✅ Actions perform:
