@@ -1,5 +1,5 @@
 # 🩸 Lumen Logger (`lumen-logger`)
-**Version:** 0.3.4  
+**Version:** 0.3.5  
 **Author:** Anthony Narine  
 
 ---
@@ -130,8 +130,8 @@ tests/test_middleware.py::test_correlation_middleware_adds_header PASSED
 `lumen-logger` builds and publishes new releases automatically via **GitHub Actions** when a tag is pushed:
 
 ```bash
-git tag v0.3.4
-git push origin v0.3.4
+git tag v0.3.5
+git push origin v0.3.5
 ```
 
 ✅ Actions perform:
